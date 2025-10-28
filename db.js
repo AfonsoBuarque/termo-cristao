@@ -1,7 +1,9 @@
 const { Pool } = require('pg');
 
+console.log('DATABASE_URL:', process.env.DATABASE_URL ? 'Carregada' : 'Não encontrada');
+
 const pool = new Pool({
-    connectionString: 'postgres://postgres:postgres@91.229.245.81:5434/n8n?sslmode=disable'
+    connectionString: process.env.DATABASE_URL
 });
 
 // Criar a tabela se não existir

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { createTable, saveScore, getTopScores } = require('./db');
@@ -7,7 +8,7 @@ const port = 3001;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(__dirname));
 
 // Criar tabela ao iniciar o servidor
 createTable();
